@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ashwin · Volt Sales &amp; Comp</title>
+<style>
+:root{
+  --bg:#f6f8fa; --card:#ffffff; --ink:#16202b; --soft:#5c6b7a; --line:#dde5ec;
+  --accent:#1d5c8f; --accent-soft:#e8f1f8;
+  --good:#1e7d4f; --good-bg:#e6f4ec; --warn:#8a6410; --warn-bg:#faf1d8; --pend:#6b5ca8; --pend-bg:#eeeaf8;
+  --tint-good:#f0f9f4; --edge-good:#cde7d9; --tint-blue:#eff5fb; --edge-blue:#d4e4f3; --teal:#2a8f88;
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg:#10161d; --card:#1a2430; --ink:#e8eef4; --soft:#93a3b2; --line:#2a3947;
+  --accent:#7db3dd; --accent-soft:#20303f;
+  --good:#6fd0a0; --good-bg:#1b3529; --warn:#e3c36a; --warn-bg:#3a3118; --pend:#b3a5e8; --pend-bg:#2b2542;
+  --tint-good:#16302a; --edge-good:#255045; --tint-blue:#182838; --edge-blue:#2b4560; --teal:#57c3ba;
+}}
+:root[data-theme="dark"]{
+  --bg:#10161d; --card:#1a2430; --ink:#e8eef4; --soft:#93a3b2; --line:#2a3947;
+  --accent:#7db3dd; --accent-soft:#20303f;
+  --good:#6fd0a0; --good-bg:#1b3529; --warn:#e3c36a; --warn-bg:#3a3118; --pend:#b3a5e8; --pend-bg:#2b2542;
+  --tint-good:#16302a; --edge-good:#255045; --tint-blue:#182838; --edge-blue:#2b4560; --teal:#57c3ba;
+}
+:root[data-theme="light"]{
+  --bg:#f6f8fa; --card:#ffffff; --ink:#16202b; --soft:#5c6b7a; --line:#dde5ec;
+  --accent:#1d5c8f; --accent-soft:#e8f1f8;
+  --good:#1e7d4f; --good-bg:#e6f4ec; --warn:#8a6410; --warn-bg:#faf1d8; --pend:#6b5ca8; --pend-bg:#eeeaf8;
+  --tint-good:#f0f9f4; --edge-good:#cde7d9; --tint-blue:#eff5fb; --edge-blue:#d4e4f3; --teal:#2a8f88;
+}
+*{box-sizing:border-box;margin:0}
+body::before{content:"";position:fixed;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--teal) 55%,var(--good));z-index:10}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;padding:32px 20px 60px}
+.wrap{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+header .kick{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:700}
+header h1{font-size:26px;font-weight:700;letter-spacing:-.01em;margin-top:4px}
+header .sub{color:var(--soft);font-size:13.5px;margin-top:6px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.stat .lbl{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-weight:600}
+.stat .num{font-size:30px;font-weight:700;margin-top:6px;font-variant-numeric:tabular-nums}
+.stat .note{font-size:12.5px;color:var(--soft);margin-top:2px}
+.stat.owed{background:linear-gradient(165deg,var(--tint-good),var(--card) 70%);border-color:var(--edge-good)}
+  .stat.owed .num{color:var(--good)}
+  .stat.next{background:linear-gradient(165deg,var(--tint-blue),var(--card) 70%);border-color:var(--edge-blue)}
+  .stat.next .num{color:var(--accent)}
+.stat.pending{border-left:4px solid var(--pend)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+.card h2{font-size:15px;font-weight:700;margin-bottom:4px}
+.card .sub{font-size:13px;color:var(--soft);margin-bottom:14px}
+.tblwrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:480px}
+th{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--soft);text-align:left;font-weight:600;padding:8px 12px 8px 0;border-bottom:1px solid var(--line)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.chip{display:inline-block;font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:99px;white-space:nowrap}
+.chip.q{background:var(--good-bg);color:var(--good)}
+.chip.won{background:var(--accent-soft);color:var(--accent)}
+.chip.p{background:var(--pend-bg);color:var(--pend)}
+.chip.paid{background:var(--good-bg);color:var(--good)}
+.flag{background:var(--warn-bg);color:var(--warn);border-radius:8px;padding:12px 16px;font-size:13.5px;font-weight:500}
+.rule{font-size:13px;color:var(--soft);background:var(--accent-soft);border-radius:8px;padding:12px 16px}
+.rule b{color:var(--ink)}
+details{background:var(--card);border:1px solid var(--line);border-radius:10px}
+details summary{cursor:pointer;padding:18px 22px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";color:var(--accent);font-size:20px;font-weight:600;line-height:1;flex:none}
+details[open] summary::after{content:"–"}
+details summary:focus-visible{outline:2px solid var(--accent);outline-offset:-4px;border-radius:10px}
+.mo .ttl{font-size:17px;font-weight:700}
+.mo .meta{font-size:13px;color:var(--soft);margin-top:3px}
+.mo .amt{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;text-align:right;flex:none}
+.mo .amt small{display:block;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-top:3px}
+.amt.is-owed{color:var(--good)} .amt.is-owed small{color:var(--good)}
+.amt.is-paid small{color:var(--soft)}
+.head-txt{min-width:0}
+.inner{padding:0 22px 22px}
+.inner h3{font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--soft);margin:20px 0 8px}
+.inner h3:first-child{margin-top:0}
+.inner p{font-size:14px;margin-bottom:10px}
+.inner ul{margin:0 0 10px 0;padding-left:20px;font-size:14px}
+.inner li{margin-bottom:6px}
+footer{font-size:12px;color:var(--soft);text-align:center;line-height:1.7}
+@media(max-width:600px){body{padding:20px 14px 40px}.stat .num{font-size:26px}.mo .amt{font-size:19px}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header>
+  <div class="kick">Volt Studios · Sales &amp; Comp</div>
+  <h1>Ashwin's Dashboard</h1>
+  <div class="sub">Last updated <b>Friday August 14, 2026 at 10:45 AM CST</b><br>Refreshes daily around noon when the app is open · private link</div>
+</header>
+
+<div class="stats">
+  <div class="stat owed"><div class="lbl">Owed right now</div><div class="num">$250</div><div class="note">5 qualified calls in August</div></div>
+  <div class="stat next"><div class="lbl">Next payment</div><div class="num">Aug 20</div><div class="note">Covers Aug 1 to 15</div></div>
+</div>
+
+<details class="mo" open>
+  <summary>
+    <div class="head-txt">
+      <div class="ttl">August 2026</div>
+      <div class="meta">5 qualified so far · paid Aug 20</div>
+    </div>
+    <div class="amt is-owed">$250<small>So far</small></div>
+  </summary>
+  <div class="inner">
+    <div class="tblwrap"><table>
+      <tr><th>Date</th><th>Call</th><th>Status</th></tr>
+      <tr><td>Aug 14</td><td>Kambiz T. · EDIN Vitality</td><td><span class="chip q">Qualified</span> <span class="chip won">Paid trial won</span></td></tr>
+      <tr><td>Aug 10</td><td>Prashanth R.</td><td><span class="chip q">Qualified</span></td></tr>
+      <tr><td>Aug 7</td><td>Nathan R.</td><td><span class="chip q">Qualified</span></td></tr>
+      <tr><td>Aug 4</td><td>Cindy L. · publishing platform</td><td><span class="chip q">Qualified</span></td></tr>
+      <tr><td>Aug 4</td><td>Benjamin K. / Diego · laundry coaching</td><td><span class="chip q">Qualified</span></td></tr>
+    </table></div>
+    <div class="rule" style="margin-top:16px">5 qualified at $50 each is <b>$250, due August 20</b>. The August 14 call with EDIN Vitality converted into a paid trial on the spot. July is fully settled, including Ali's $50 paid on August 5. <b>15 qualified calls in a calendar month unlocks the $250 bonus.</b></div>
+    <div class="flag" style="margin-top:12px">Ashwin, one to check: Kathleen understood Kristi took <b>two</b> calls on August 7, and the tracker logs one (Nathan R.). If a second was held, add it to the tracker and it is another $50.</div>
+  </div>
+</details>
+
+<details class="mo">
+  <summary>
+    <div class="head-txt">
+      <div class="ttl">July 2026</div>
+      <div class="meta">21 calls booked · 16 qualified · 1 awaiting review · closed</div>
+    </div>
+    <div class="amt is-paid">$1,050<small>Paid in full</small></div>
+  </summary>
+  <div class="inner">
+    <div class="tblwrap"><table>
+      <tr><th>Date</th><th>Call</th><th>Status</th></tr>
+      <tr><td>Jul 31</td><td>Ali A. · board game Kickstarter</td><td><span class="chip q">Qualified</span></td></tr>
+      <tr><td>Jul 29</td><td>Joy G. · paid ads consulting</td><td><span class="chip p">Awaiting review</span></td></tr>
+      <tr><td>Jul 28</td><td>Peter K. · supplements brand</td><td><span class="chip q">Qualified</span> <span class="chip won">Closed on the call</span></td></tr>
+      <tr><td>Jul 28</td><td>Jon · NJ air duct cleaning</td><td><span class="chip q">Qualified</span></td></tr>
+      <tr><td>Jul 27</td><td>Davis C. · Amazon brand</td><td><span class="chip q">Qualified</span></td></tr>
+      <tr><td>Jul 27</td><td>Victor H. · Engage</td><td><span class="chip q">Qualified</span> <span class="chip won">$500 pilot won</span></td></tr>
+      <tr><td>Jul 22</td><td>Stacy C. · KeepYourEquity</td><td><span class="chip q">Qualified</span></td></tr>
+      <tr><td>Jul 20</td><td>Taylor K. · DUO</td><td><span class="chip q">Qualified</span></td></tr>
+      <tr><td>Jul 17</td><td>Cory · Strive Networking</td><td><span class="chip q">Qualified</span></td></tr>
+      <tr><td>Jul 14</td><td>Ignat · Margintall</td><td><span class="chip q">Qualified</span></td></tr>
+      <tr><td>Jul 14</td><td>Scott L. · Cambridge PetTech</td><td><span class="chip q">Qualified</span></td></tr>
+      <tr><td>Jul 13</td><td>Ryan R.</td><td><span class="chip q">Qualified</span></td></tr>
+      <tr><td>Jul 13</td><td>Tara M.</td><td><span class="chip n">Not qualified</span></td></tr>
+      <tr><td>Jul 9</td><td>Serena · Fasera</td><td><span class="chip q">Qualified</span></td></tr>
+      <tr><td>Jul 2</td><td>Ghostworks (Taylor B. + Nolan)</td><td><span class="chip q">Qualified</span> <span class="chip won">Won</span></td></tr>
+      <tr><td>Jul 2</td><td>DesignDash (Laura U. + Melissa)</td><td><span class="chip q">Qualified</span> <span class="chip won">Won</span></td></tr>
+      <tr><td>Jul 1</td><td>Debra R. · HeartRoot</td><td><span class="chip q">Qualified</span> <span class="chip won">Won</span></td></tr>
+      <tr><td>Jul 1</td><td>Michael U.</td><td><span class="chip q">Qualified</span></td></tr>
+    </table></div>
+    <div class="rule" style="margin-top:16px">July closed at <b>16 qualified calls</b>: $800 in calls plus the $250 bonus for the 15 to 19 band, so $1,050 total. $1,000 went out July 29, and the remaining <b>$50 for Ali's July 31 call pays August 5</b>. Joy's July 29 call is still under review and would add $50 more if confirmed.</div>
+  </div>
+</details>
+
+<details class="mo">
+  <summary>
+    <div class="head-txt">
+      <div class="ttl">June 2026</div>
+      <div class="meta">15 calls booked · 12 qualified · includes the first-30-day minimum</div>
+    </div>
+    <div class="amt is-paid">$900<small>Paid in full</small></div>
+  </summary>
+  <div class="inner">
+    <div class="tblwrap"><table>
+      <tr><th>Period</th><th>Detail</th><th class="num">Amount</th><th>Status</th></tr>
+      <tr><td>Trial · May 15 to Jun 13</td><td>4 qualified calls, lifted to the $500 first-30-day minimum</td><td class="num">$500</td><td><span class="chip paid">Paid</span></td></tr>
+      <tr><td>Jun 14 to Jun 30</td><td>8 qualified calls</td><td class="num">$400</td><td><span class="chip paid">Paid Jul 8</span></td></tr>
+    </table></div>
+    <div class="rule" style="margin-top:16px"><b>June is settled.</b> The first 30 days, May 15 through June 13, carried a $500 minimum, so those four calls paid $500 rather than $200. The rest of June was 8 calls at $400. Both are paid.</div>
+  </div>
+</details>
+
+<div class="card">
+  <h2>Payment schedule</h2>
+  <div class="sub">Twice a month, on fixed dates.</div>
+  <div class="tblwrap"><table>
+    <tr><th>Work period</th><th>Paid by</th><th>What's included</th></tr>
+    <tr><td>1st to 15th</td><td>the 20th</td><td>$50 per qualified call in that stretch</td></tr>
+    <tr><td>16th to month end</td><td>the 5th of the next month</td><td>The rest of the $50s, plus the monthly bonus for the whole month</td></tr>
+  </table></div>
+  <div class="rule" style="margin-top:14px">The bonus counts the full calendar month, so it normally lands on the second payment of the month. <b>Right now: the August 1 to 15 period closes today. Invoice AS081526 is $250</b>, and it pays August 20.</div>
+</div>
+
+<details>
+  <summary><span style="font-weight:700">How the pay works</span></summary>
+  <div class="inner">
+    <h3>The basics</h3>
+    <p><b>$50 for every qualified held appointment.</b> The prospect has to actually show up, and Kathleen approves it as qualified after the call. Booked but not held earns nothing, and each prospect counts once.</p>
+
+    <h3>Monthly volume bonus</h3>
+    <p>On top of the $50s, based on qualified held appointments in a single calendar month. Only the highest tier you reach is paid, and the tiers don't stack.</p>
+    <ul>
+      <li>15 to 19 in a month: <b>+$250</b>, so 15 calls pays $1,000</li>
+      <li>20 to 25 in a month: <b>+$400</b>, so 20 calls pays $1,400</li>
+      <li>26 to 33 in a month: <b>+$600</b>, so 26 calls pays $1,900</li>
+      <li>34 or more in a month: <b>+$1,000</b>, so 34 calls pays $2,700</li>
+    </ul>
+    <p>The count resets on the first of every month.</p>
+
+    <h3>What makes a call qualified</h3>
+    <ul>
+      <li>The prospect actually attended. No-shows don't count, and a reschedule counts once it's held.</li>
+      <li>It's a real business prospect, not a vendor, job seeker, agency partner, or someone already in our pipeline.</li>
+      <li>They fit our ideal client, and the person on the call can make or influence the buying decision.</li>
+      <li>They have a real need we can solve, and a realistic ability to pay our <b>$3,000/month minimum</b>. Kathleen can approve exceptions below that in writing, ahead of the call.</li>
+      <li>You asked about budget before booking, and the notes were complete before the call: source, company, contact, role, the need, budget signal, timeline, and why you think it qualifies.</li>
+    </ul>
+
+    <h3>Getting paid</h3>
+    <p>Twice a month, on the schedule above. Send an invoice for each period with a short summary of the calls you're claiming.</p>
+
+    <h3>The first 30 days</h3>
+    <p>The trial period, May 15 to June 13, carried a $500 minimum as long as the work standards were met. That's settled and reflected in June above.</p>
+  </div>
+</details>
+
+<div class="card">
+  <h2>Payments received</h2>
+  <div class="sub">Every payment to date, matched against the finance records.</div>
+  <div class="tblwrap"><table>
+    <tr><th>Paid</th><th class="num">Amount</th><th>Covering</th></tr>
+    <tr><td>Jun 10</td><td class="num">$250</td><td>First 30 days, part one</td></tr>
+    <tr><td>Jun 17</td><td class="num">$250</td><td>First 30 days, part two</td></tr>
+    <tr><td>Jul 6</td><td class="num">$600</td><td>June, 12 qualified calls</td></tr>
+    <tr><td>Jul 29</td><td class="num">$1,000</td><td>July calls plus the $250 bonus</td></tr>
+    <tr><td>Aug 5</td><td class="num">$50</td><td>Ali, July 31</td></tr>
+    <tr><td><b>Total</b></td><td class="num"><b>$2,150</b></td><td></td></tr>
+  </table></div>
+  <div class="rule" style="margin-top:14px">The two June payments together are the $500 first-30-days minimum, paid in two parts. Everything above is settled.</div>
+</div>
+
+<div class="card">
+  <h2>Where your calls landed</h2>',
+  <div class="sub">Clients that came from calls you booked, and are now signed and running.</div>
+  <div class="tblwrap"><table>
+    <tr><th>Client</th><th>Your call</th><th>Status</th></tr>
+    <tr><td>EDIN Vitality</td><td>Aug 14</td><td><span class="chip won">Paid trial, won on the call</span></td></tr>
+    <tr><td>5% Nutrition</td><td>Jul 28</td><td><span class="chip won">Closed on the call</span></td></tr>
+    <tr><td>Ghostworks</td><td>Jul 2</td><td><span class="chip won">Signed</span></td></tr>
+    <tr><td>DesignDash</td><td>Jul 2</td><td><span class="chip won">Signed</span></td></tr>
+    <tr><td>HeartRoot Creations</td><td>Jul 1</td><td><span class="chip won">Signed</span></td></tr>
+    <tr><td>Engage</td><td>Jul 27</td><td><span class="chip won">Paid pilot</span></td></tr>
+    <tr><td>Genesis Clinical</td><td>Jun 8</td><td><span class="chip won">Signed, kicked off Jul 3</span></td></tr>
+    <tr><td>Closer</td><td>Jun 11</td><td><span class="chip won">Signed</span></td></tr>
+  </table></div>
+  <div class="rule" style="margin-top:14px">Seven clients in under three months, all from calls you put on the calendar. Several more proposals are still out with prospects you booked.</div>
+</div>
+
+<div class="card">
+  <h2>How this runs, day to day</h2>
+  <div class="sub">So nothing gets lost and nothing waits on a month-end scramble.</div>
+  <div class="tblwrap"><table>
+    <tr><th>Who</th><th>What happens</th></tr>
+    <tr><td><b>Ashwin</b></td><td>Fills in the tracker daily as calls get booked and held, with real notes on each one.</td></tr>
+    <tr><td><b>Kathleen</b></td><td>Pushes every discovery call into GoHighLevel and marks it qualified or not, then pings Ashwin on how the calls went. Every call is recorded in Fathom.</td></tr>
+    <tr><td><b>This dashboard</b></td><td>Refreshes daily from the tracker and GoHighLevel, so the count and the money are always current.</td></tr>
+    <tr><td><b>Cynthia</b></td><td>Invoices and pays from this same confirmed count.</td></tr>
+  </table></div>
+</div>
+
+<div class="card">
+  <h2>Proposal submissions</h2>
+  <div class="tblwrap"><table>
+    <tr><th>Month</th><th class="num">Submitted</th></tr>
+    <tr><td>May</td><td class="num">73</td></tr>
+    <tr><td>June</td><td class="num">202</td></tr>
+  </table></div>
+  <div class="flag" style="margin-top:14px">Nothing logged in the proposal sheet since June 23. If submissions are still going out, the log needs catching up so these numbers stay right.</div>
+</div>
+
+<footer>
+  Sources: the Proposal Pipeline Tracker · GoHighLevel · Kathleen's call review. Terms follow the Appointment Setter Agreement dated May 15, 2026.<br>
+  Questions on payments: Cynthia. Questions on whether a call qualified: Kathleen.
+</footer>
+</div>
+
+</body>
+</html>
