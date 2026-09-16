@@ -10,25 +10,25 @@
   --bg:#f6f8fa; --card:#ffffff; --ink:#16202b; --soft:#5c6b7a; --line:#dde5ec;
   --accent:#1d5c8f; --accent-soft:#e8f1f8;
   --good:#1e7d4f; --good-bg:#e6f4ec; --warn:#8a6410; --warn-bg:#faf1d8; --pend:#6b5ca8; --pend-bg:#eeeaf8;
-  --tint-good:#f0f9f4; --edge-good:#cde7d9; --tint-blue:#eff5fb; --edge-blue:#d4e4f3; --teal:#2a8f88;
+  --tint-good:#f0f9f4; --edge-good:#cde7d9; --tint-blue:#eff5fb; --edge-blue:#d4e4f3; --teal:#2a8f88; --teal-bg:#e1f3f1;
 }
 @media(prefers-color-scheme:dark){:root{
   --bg:#10161d; --card:#1a2430; --ink:#e8eef4; --soft:#93a3b2; --line:#2a3947;
   --accent:#7db3dd; --accent-soft:#20303f;
   --good:#6fd0a0; --good-bg:#1b3529; --warn:#e3c36a; --warn-bg:#3a3118; --pend:#b3a5e8; --pend-bg:#2b2542;
-  --tint-good:#16302a; --edge-good:#255045; --tint-blue:#182838; --edge-blue:#2b4560; --teal:#57c3ba;
+  --tint-good:#16302a; --edge-good:#255045; --tint-blue:#182838; --edge-blue:#2b4560; --teal:#57c3ba; --teal-bg:#17332f;
 }}
 :root[data-theme="dark"]{
   --bg:#10161d; --card:#1a2430; --ink:#e8eef4; --soft:#93a3b2; --line:#2a3947;
   --accent:#7db3dd; --accent-soft:#20303f;
   --good:#6fd0a0; --good-bg:#1b3529; --warn:#e3c36a; --warn-bg:#3a3118; --pend:#b3a5e8; --pend-bg:#2b2542;
-  --tint-good:#16302a; --edge-good:#255045; --tint-blue:#182838; --edge-blue:#2b4560; --teal:#57c3ba;
+  --tint-good:#16302a; --edge-good:#255045; --tint-blue:#182838; --edge-blue:#2b4560; --teal:#57c3ba; --teal-bg:#17332f;
 }
 :root[data-theme="light"]{
   --bg:#f6f8fa; --card:#ffffff; --ink:#16202b; --soft:#5c6b7a; --line:#dde5ec;
   --accent:#1d5c8f; --accent-soft:#e8f1f8;
   --good:#1e7d4f; --good-bg:#e6f4ec; --warn:#8a6410; --warn-bg:#faf1d8; --pend:#6b5ca8; --pend-bg:#eeeaf8;
-  --tint-good:#f0f9f4; --edge-good:#cde7d9; --tint-blue:#eff5fb; --edge-blue:#d4e4f3; --teal:#2a8f88;
+  --tint-good:#f0f9f4; --edge-good:#cde7d9; --tint-blue:#eff5fb; --edge-blue:#d4e4f3; --teal:#2a8f88; --teal-bg:#e1f3f1;
 }
 *{box-sizing:border-box;margin:0}
 body::before{content:"";position:fixed;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--teal) 55%,var(--good));z-index:10}
@@ -62,6 +62,7 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 .chip.p{background:var(--pend-bg);color:var(--pend)}
 .chip.paid{background:var(--good-bg);color:var(--good)}
 .chip.n{background:var(--warn-bg);color:var(--warn)}
+.chip.prop{background:var(--teal-bg);color:var(--teal)}
 .flag{background:var(--warn-bg);color:var(--warn);border-radius:8px;padding:12px 16px;font-size:13.5px;font-weight:500}
 .rule{font-size:13px;color:var(--soft);background:var(--accent-soft);border-radius:8px;padding:12px 16px}
 .rule b{color:var(--ink)}
@@ -119,10 +120,10 @@ footer{font-size:12px;color:var(--soft);text-align:center;line-height:1.7}
       <tr><td>Sep 14</td><td>Ugo Okolo · family travel app</td><td><span class="chip p">Awaiting review</span></td></tr>
       <tr><td>Sep 10</td><td>Peter F. + Robyn · round two</td><td><span class="chip p">Round two · counted on Sep 8</span></td></tr>
       <tr><td>Sep 8</td><td>Faizan + Thiago · round two</td><td><span class="chip p">Round two · counted on Sep 2</span></td></tr>
-      <tr><td>Sep 8</td><td>Hayal + Nick · character music universe</td><td><span class="chip q">Qualified</span></td></tr>
+      <tr><td>Sep 8</td><td>Hayal + Nick · character music universe</td><td><span class="chip q">Qualified</span> <span class="chip prop">Proposal sent</span></td></tr>
       <tr><td>Sep 8</td><td>Peter F.</td><td><span class="chip q">Qualified</span></td></tr>
       <tr><td>Sep 8</td><td>Antonio P. · trading education</td><td><span class="chip q">Qualified</span></td></tr>
-      <tr><td>Sep 2</td><td>Faizan D. + Thiago · Salesforce consultancy</td><td><span class="chip q">Qualified</span></td></tr>
+      <tr><td>Sep 2</td><td>Faizan D. + Thiago · Salesforce consultancy</td><td><span class="chip q">Qualified</span> <span class="chip prop">Proposal sent</span></td></tr>
       <tr><td>Sep 2</td><td>John Ryding</td><td><span class="chip q">Qualified</span></td></tr>
       <tr><td>Sep 1</td><td>Nees Lotus (Nafis)</td><td><span class="chip n">Not qualified · paid consult</span></td></tr>
     </table></div>
@@ -141,8 +142,8 @@ footer{font-size:12px;color:var(--soft);text-align:center;line-height:1.7}
   <div class="inner">
     <div class="tblwrap"><table>
       <tr><th>Date</th><th>Call</th><th>Status</th></tr>
-      <tr><td>Aug 28</td><td>Brandon A. · Natick home listing</td><td><span class="chip q">Qualified</span></td></tr>
-      <tr><td>Aug 22</td><td>Dr. O. · women's health telemedicine</td><td><span class="chip q">Qualified</span></td></tr>
+      <tr><td>Aug 28</td><td>Brandon A. · Natick home listing</td><td><span class="chip q">Qualified</span> <span class="chip prop">Proposal sent</span></td></tr>
+      <tr><td>Aug 22</td><td>Dr. O. · women's health telemedicine</td><td><span class="chip q">Qualified</span> <span class="chip prop">Proposal sent</span></td></tr>
       <tr><td>Aug 17</td><td>Kurtis · MXR Imaging</td><td><span class="chip q">Qualified</span></td></tr>
       <tr><td>Aug 14</td><td>Kambiz T. · EDIN Vitality</td><td><span class="chip q">Qualified</span> <span class="chip won">Paid trial won</span></td></tr>
       <tr><td>Aug 10</td><td>Prashanth R.</td><td><span class="chip q">Qualified</span></td></tr>
