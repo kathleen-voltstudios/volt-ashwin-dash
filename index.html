@@ -47,6 +47,7 @@ header .sub{color:var(--soft);font-size:13.5px;margin-top:6px}
   .stat.next{background:linear-gradient(165deg,var(--tint-blue),var(--card) 70%);border-color:var(--edge-blue)}
   .stat.next .num{color:var(--accent)}
 .stat.pending{border-left:4px solid var(--pend)}
+.why{display:block;font-size:12.5px;color:#6b6b6b;margin-top:4px;line-height:1.4}
 .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
 .card h2{font-size:15px;font-weight:700;margin-bottom:4px}
 .card .sub{font-size:13px;color:var(--soft);margin-bottom:14px}
@@ -113,20 +114,21 @@ footer{font-size:12px;color:var(--soft);text-align:center;line-height:1.7}
     <div class="amt is-owed">$920<small>$350 paid · $570 Oct 5</small></div>
   </summary>
   <div class="inner">
+    <div class="rule" style="margin-bottom:12px"><b>How a call qualifies:</b> the prospect attends, they're the decision maker, and the engagement they're describing is at least $3,000 a month. It's about the lead, not about whether we win it. A great conversation with a small budget still sits outside the count, and that's the rule, not a judgment on the booking.</div>
     <div class="tblwrap"><table>
       <tr><th>Date</th><th>Call</th><th>Status</th></tr>
       <tr><td>Sep 30</td><td>Oliver S. · agency outbound email</td><td><span class="chip q">Qualified</span></td></tr>
-      <tr><td>Sep 30</td><td>Tatyana B. · CoSell marketplace</td><td><span class="chip n">Not qualified · no budget</span></td></tr>
-      <tr><td>Sep 30</td><td>Andrew L. · DepreciaMax</td><td><span class="chip n">Not qualified · under the floor</span></td></tr>
+      <tr><td>Sep 30</td><td>Tatyana B. · CoSell marketplace</td><td><span class="chip n">Not qualified</span> <span class="why">Pre-launch, no revenue. Offered $300 to $1,000 one-off experiments and had no number for anything after. Under the $3,000 floor.</span></td></tr>
+      <tr><td>Sep 30</td><td>Andrew L. · DepreciaMax</td><td><span class="chip n">Not qualified</span> <span class="why">Good conversation and a real product, but a side project spending $1,700 a month on ads. He wants 2 to 5 hours a week hourly and said a retainer isn't in his budget yet. Under the $3,000 floor.</span></td></tr>
       <tr><td>Sep 29</td><td>Josep G. · Dr. Pimple Bully</td><td><span class="chip q">Qualified</span> <span class="chip prop">Closed · $3,750/mo</span></td></tr>
-      <tr><td>Sep 28</td><td>Kurt N. · OneAIWorld</td><td><span class="chip n">Not qualified · no budget</span></td></tr>
+      <tr><td>Sep 28</td><td>Kurt N. · OneAIWorld</td><td><span class="chip n">Not qualified</span> <span class="why">Weekend side project, $900 one-off budget, and his stated goal is ten paying subscribers. Under the $3,000 floor.</span></td></tr>
       <tr><td>Sep 28</td><td>Ludo C. · FE Solutions</td><td><span class="chip q">Qualified</span> <span class="chip prop">Proposal in progress</span></td></tr>
       <tr><td>Sep 24</td><td>Mike C. · DLHY Ridge Advisory</td><td><span class="chip q">Qualified</span></td></tr>
       <tr><td>Sep 17</td><td>Nina Z. · Kai Fine Jewelry</td><td><span class="chip q">Qualified</span> <span class="chip prop">Proposal sent · declined</span></td></tr>
       <tr><td>Sep 16</td><td>Phil Beer · REEL Weight Loss</td><td><span class="chip q">Qualified</span></td></tr>
-      <tr><td>Sep 15</td><td>Gabriel R. · Cosmic AI product test</td><td><span class="chip n">Not qualified · vendor pitch</span></td></tr>
-      <tr><td>Sep 14</td><td>Chaim R. · pre-seed raise advisory</td><td><span class="chip n">Not qualified</span></td></tr>
-      <tr><td>Sep 14</td><td>Ugo O. · family travel app</td><td><span class="chip n">Not qualified · no budget</span></td></tr>
+      <tr><td>Sep 15</td><td>Gabriel R. · Cosmic AI product test</td><td><span class="chip n">Not qualified</span> <span class="why">He was selling to us, not buying.</span></td></tr>
+      <tr><td>Sep 14</td><td>Chaim R. · pre-seed raise advisory</td><td><span class="chip n">Not qualified</span> <span class="why">Wanted fundraising advice, not marketing. Not a fit for what Volt sells.</span></td></tr>
+      <tr><td>Sep 14</td><td>Ugo O. · family travel app</td><td><span class="chip n">Not qualified</span> <span class="why">No budget came up at all on the call.</span></td></tr>
       <tr><td>Sep 10</td><td>Peter F. + Robyn · round two</td><td><span class="chip p">Round two · counted on Sep 8</span></td></tr>
       <tr><td>Sep 8</td><td>Faizan + Thiago · round two</td><td><span class="chip p">Round two · counted on Sep 2</span></td></tr>
       <tr><td>Sep 8</td><td>Hayal + Nick · character music universe</td><td><span class="chip q">Qualified</span> <span class="chip prop">Proposal sent</span></td></tr>
@@ -134,7 +136,7 @@ footer{font-size:12px;color:var(--soft);text-align:center;line-height:1.7}
       <tr><td>Sep 8</td><td>Antonio P. · trading education</td><td><span class="chip q">Qualified</span></td></tr>
       <tr><td>Sep 2</td><td>Faizan D. + Thiago · Salesforce consultancy</td><td><span class="chip q">Qualified</span> <span class="chip prop">Proposal sent</span></td></tr>
       <tr><td>Sep 2</td><td>John Ryding</td><td><span class="chip q">Qualified</span></td></tr>
-      <tr><td>Sep 1</td><td>Nees Lotus (Nafis)</td><td><span class="chip n">Not qualified · paid consult</span></td></tr>
+      <tr><td>Sep 1</td><td>Nees Lotus (Nafis)</td><td><span class="chip n">Not qualified</span> <span class="why">Wanted a one-time paid consult, not an agency engagement.</span></td></tr>
     </table></div>
     <div class="rule" style="margin-top:16px">September closes at <b>11 qualified calls, $920 total</b>, the busiest month yet and the first on the new plan: $70 per qualified call from Sep 1, plus the 10 to 14 band at +$150, which paid for the first time. The Sep 1 to 15 window closed at five qualified, the <b>$350 that went out on the Sep 21 run</b>. The back half added six more: Phil Beer, Nina Zhou, Mike Carriero, Ludo Cremers, Josep Genebriera and Oliver Schultz, which is <b>$420 in calls plus the $150 bonus, $570 on the Oct 5 run</b>. Seven calls sit outside the count: the Sep 1 paid consult, a vendor pitch on Sep 15, two Sep 14 calls that didn't reach budget or fit, and three in the last days of the month that came in under the $3,000 floor. Two round-two conversations with leads who already counted don't pay again. And one more thing worth celebrating: <b>the Sep 29 call with Josep closed on Oct 1 at $3,750 a month</b>. Under the new closing bonus, 4% of that first invoice, $150, pays on the run after it's collected.</div>
   </div>
